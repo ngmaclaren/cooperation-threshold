@@ -1,0 +1,200 @@
+bc,N,kmean,clust,smean,wclust,dirname,filename,order,genus,species,interaction_type,population_type,division
+-4.64588702397608,5,4,1,4.00000000004,0.331968561810087,aloutta_guariba_grooming_griffin,weighted_primate_matrix_2,Primates,Alouatta,guariba,grooming,free-ranging,new_world
+2.85330016466998,20,2.2,0.03,2.2,0.03,asianelephants_dominance_unweighted,asianelephant_desilva_attribute,Proboscidea,Elephas,maximus,dominance,free-ranging,
+10.0209107705429,15,6,0.530634920634921,5.99999999992,0.0891341043073545,ateles_geoffroyi_grooming_weighted,weighted_primate_matrix_1,Primates,Ateles,geoffroyi,grooming,free-ranging,new_world
+-4.15963857757853,4,3,1,5,0.508891022083552,baboon_association_weighted,baboon_franz_association_group_01_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+-12.852562595835,5,3.2,0.866666666666667,5.2,0.405746787504709,baboon_association_weighted,baboon_franz_association_group_02_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+3.45664181880987,23,2.60869565217391,0.0434782608695652,2.8695652173913,0.0273895880411929,baboon_association_weighted,baboon_franz_association_group_03_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+-6.79928952042629,4,2,0.583333333333333,2,0.583333333333333,baboon_association_weighted,baboon_franz_association_group_04_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+-8.96402784940691,4,2,0.583333333333333,3,0.367476972886005,baboon_association_weighted,baboon_franz_association_group_05_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+8.74338307113127,7,2.57142857142857,0.285714285714286,2.57142857142857,0.285714285714286,baboon_association_weighted,baboon_franz_association_group_06_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+5.81481403290342,16,3.5,0.2125,3.625,0.10625,baboon_association_weighted,baboon_franz_association_group_07_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+4.97113245991388,20,3.3,0.231190476190476,3.5,0.117420874040928,baboon_association_weighted,baboon_franz_association_group_08_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+3.67128447379433,12,2.33333333333333,0.211111111111111,2.33333333333333,0.211111111111111,baboon_association_weighted,baboon_franz_association_group_09_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+23.6790565047937,13,4.92307692307692,0.510805860805861,6,0.197615038417935,baboon_association_weighted,baboon_franz_association_group_10_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+6.77574848025584,14,3.57142857142857,0.485714285714286,3.71428571428571,0.249974028747121,baboon_association_weighted,baboon_franz_association_group_11_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+inf,3,1.33333333333333,0,2,0,baboon_association_weighted,baboon_franz_association_group_12_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+inf,3,1.33333333333333,0,1.33333333333333,0,baboon_association_weighted,baboon_franz_association_group_13_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+-15.0257370029012,7,4.85714285714286,0.819047619047619,10.8571428571429,0.22970777398112,baboon_association_weighted,baboon_franz_association_group_14_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+-15.4096113770881,6,4,0.844444444444444,6.66666666666667,0.319573096701042,baboon_association_weighted,baboon_franz_association_group_15_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+-20.3771241200378,6,3.66666666666667,0.711111111111111,4.66666666666667,0.287893049476614,baboon_association_weighted,baboon_franz_association_group_16_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+8.74459143204913,9,3.33333333333333,0.425925925925926,4.22222222222222,0.254839132112693,baboon_association_weighted,baboon_franz_association_group_17_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+-531.294164946774,10,5.4,0.433333333333333,6.8,0.263009803232478,baboon_association_weighted,baboon_franz_association_group_18_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+3.73391976014959,13,2.46153846153846,0.11025641025641,2.46153846153846,0.11025641025641,baboon_association_weighted,baboon_franz_association_group_19_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+14.3698363329251,13,4.61538461538462,0.390842490842491,4.92307692307692,0.201752655610992,baboon_association_weighted,baboon_franz_association_group_20_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+109.55718433342,8,3.75,0.683333333333333,5,0.277583521634104,baboon_association_weighted,baboon_franz_association_group_21_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+6.85360704270113,8,2.25,0.191666666666667,2.25,0.191666666666667,baboon_association_weighted,baboon_franz_association_group_22_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+3.57312297215759,21,2.85714285714286,0.107709750566893,3.23809523809524,0.0379661156643206,baboon_association_weighted,baboon_franz_association_group_23_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+4,4,1.5,0,1.5,0,baboon_association_weighted,baboon_franz_association_group_24_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+2.49863860994215,10,1.8,0,2,0,baboon_association_weighted,baboon_franz_association_group_25_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+2.81725265877367,7,1.71428571428571,0,2,0,baboon_association_weighted,baboon_franz_association_group_26_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+6.28917602641344,15,3.46666666666667,0.224444444444444,4.53333333333333,0.136718177562804,baboon_association_weighted,baboon_franz_association_group_27_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+3.36402000008657,16,2.625,0.0791666666666667,3.25,0.0263888888888889,baboon_association_weighted,baboon_franz_association_group_28_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+4.43661780072413,13,2.92307692307692,0.141025641025641,3.23076923076923,0.0705128205128205,baboon_association_weighted,baboon_franz_association_group_29_attribute,Primates,Papio,cynocephalus,spatial_proximity,free-ranging,old_world
+119.999999999997,4,2,0,3.5,0,baboon_association_weighted,baboon_franz_grooming_group_01,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+-56.345977592243,5,2.4,0.6,3.6,0.270217062020228,baboon_association_weighted,baboon_franz_grooming_group_02,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+3.88990747374661,23,3.04347826086957,0.227743271221532,4.78260869565217,0.070261641263926,baboon_association_weighted,baboon_franz_grooming_group_03,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+-7.10340112965846,4,2,0.583333333333333,7.5,0.169862868143169,baboon_association_weighted,baboon_franz_grooming_group_04,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+6.55440420980634,4,2.5,0.833333333333333,7.5,0.262508468105668,baboon_association_weighted,baboon_franz_grooming_group_05,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+8.07165386879924,7,3.14285714285714,0.723809523809524,5.42857142857143,0.208488815853656,baboon_association_weighted,baboon_franz_grooming_group_06,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+8.93150692748545,16,5.125,0.290922619047619,8.25,0.0732930941076063,baboon_association_weighted,baboon_franz_grooming_group_07,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+2.91715555199331,12,2,0.125,2,0.125,baboon_association_weighted,baboon_franz_grooming_group_08,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+2.30069661492362,11,1.81818181818182,0,2.18181818181818,0,baboon_association_weighted,baboon_franz_grooming_group_09,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+12.5177042080513,13,4.61538461538462,0.415384615384615,7.53846153846154,0.123233459158634,baboon_association_weighted,baboon_franz_grooming_group_10,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+5.49174502967518,12,2.83333333333333,0.158333333333333,4.33333333333333,0.0937809599491927,baboon_association_weighted,baboon_franz_grooming_group_11,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+,2,1,0,1,0,baboon_association_weighted,baboon_franz_grooming_group_12,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+2.66666666666667,4,1.5,0,2.5,0,baboon_association_weighted,baboon_franz_grooming_group_13,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+9.455182374883,7,2.85714285714286,0.385714285714286,5.42857142857143,0.133826372921311,baboon_association_weighted,baboon_franz_grooming_group_14,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+-24.7185653719936,6,3,0.722222222222222,4.33333333333333,0.514099823947499,baboon_association_weighted,baboon_franz_grooming_group_15,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+3.21073276663178,6,1.66666666666667,0,2.33333333333333,0,baboon_association_weighted,baboon_franz_grooming_group_16,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+3.43869306414593,7,2,0,2.57142857142857,0,baboon_association_weighted,baboon_franz_grooming_group_17,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+2.74015071567946,9,1.77777777777778,0,3.55555555555556,0,baboon_association_weighted,baboon_franz_grooming_group_18,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+4.93185265307149,11,2.54545454545455,0.348484848484848,3.45454545454545,0.142298562582378,baboon_association_weighted,baboon_franz_grooming_group_19,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+4.01623201568688,13,3.23076923076923,0.38974358974359,6,0.100350227704146,baboon_association_weighted,baboon_franz_grooming_group_20,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+-58.5558474473733,8,4.5,0.6875,12.5,0.277614389782135,baboon_association_weighted,baboon_franz_grooming_group_21,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+4.43063616772482,8,2.5,0.5,3.25,0.166666666666667,baboon_association_weighted,baboon_franz_grooming_group_22,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+3.75322020148346,18,2.55555555555556,0.125925925925926,3.22222222222222,0.0407254589848911,baboon_association_weighted,baboon_franz_grooming_group_23,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+4.21305343212711,11,2.36363636363636,0,2.36363636363636,0,baboon_association_weighted,baboon_franz_grooming_group_25,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+3.63335587017296,18,2.77777777777778,0.0537037037037037,3.55555555555556,0.0129090239317638,baboon_association_weighted,baboon_franz_grooming_group_26,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+5.82567375631794,17,3.76470588235294,0.245658263305322,4.82352941176471,0.101455148167794,baboon_association_weighted,baboon_franz_grooming_group_27,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+4.29992381330563,16,2.875,0.135416666666667,3.875,0.0393610515288685,baboon_association_weighted,baboon_franz_grooming_group_28,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+5.77054040439439,13,4.30769230769231,0.371794871794872,6.76923076923077,0.0668167964833303,baboon_association_weighted,baboon_franz_grooming_group_29,Primates,Papio,cynocephalus,grooming,free-ranging,old_world
+14.1949487000277,21,6.85714285714286,0.547585483299769,6636.95238095238,0.0406731049697811,bats_foodsharing_weighted,vampirebats_carter_mouth_licking_attribute,Chiroptera,Desmodus,rotundus,Food_sharing,captive,
+-36.4642024323908,43,25.3953488372093,0.904976153320225,777.674418604651,0.115193622704437,bats_roostuse_weighted,bat_silvis_roosting_attribute,Chiroptera,Myotis,sodalis,social_projection_bipartite,free-ranging,
+-81.6287482335256,26,17.0769230769231,0.813179699097671,69,0.126031728507531,bison_dominance_weighted,bison_lott_dominance_attribute,Artiodactyla,Bison,bison,dominance,semi-ranging,
+3.30783586388038,5,1.6,0,2.4,0,black_bear_sexual_weighted,black_bear_schenk_sexual_network_attribute,Carnivora,Ursus,americanus,FE_mating,free-ranging,
+50.336075852119,22,15.1818181818182,0.879371233498028,15.1818181819909,0.114573968936876,brachyteles_arachonoides_association_griffin,weighted_primate_matrix_3,Primates,Brachyteles,arachnoides,spatial_proximity,free-ranging,new_world
+120.98767783464,28,14.6428571428571,0.645927334557918,35.5714285714286,0.105708581041463,cattle_dominance_weighted,weighted_cattle_dominance,Artiodactyla,Cattle,N/A,dominance,semi-ranging,
+34.4616583060063,15,7.86666666666667,0.663665223665223,7.86666666672,0.0508155526613279,cercopithecus_campbelli_grooming_griffin,weighted_primate_matrix_5,Primates,Cercopithecus,campbelli,grooming,N/A,old_world
+8.7598256041119,8,4.5,0.5875,4.499999999975,0.0977196824011519,colobus_guereza_grooming_griffin,weighted_primate_matrix_6,Primates,Colobus,guereza,grooming,free-ranging,old_world
+,6,2,0,,0,dog_sexual_unweighted,dog_pal_sexual_network_2006_attribute,Carnivora,Canis,familiaris ,FE_mating,free-ranging,
+,6,2,0,,0,dog_sexual_unweighted,dog_pal_sexual_network_2009_attribute,Carnivora,Canis,familiaris ,FE_mating,free-ranging,
+2.78459951346641,7,1.71428571428571,0,2.57142857142857,0,dog_sexual_weighted,dog_cafazzo_sexual_network_attribute,Carnivora,Canis,familiaris ,FE_mating,free-ranging,
+6.52373875125469,62,5.12903225806452,0.25895824605502,,,dolphin_proximity_unweighted,unweighted_social_dolphin_Lusseau,Artiodactyla,Tursiops,truncatus,spatial_proximity,free-ranging,
+2.89509175994841,46,2.43478260869565,0.03743961352657,2.43478260869565,0.03743961352657,elephantseal_dominance_weighted,weighted_dominance_phys_contact_2010_2011,Carnivora,Mirounga,angustirostris,dominance,free-ranging,
+2.54549438914601,9,1.77777777777778,0,1.77777777777778,0,elephantseal_dominance_weighted,weighted_dominance_phys_contact_2010_2012_peidras_blanca,Carnivora,Mirounga,angustirostris,dominance,free-ranging,
+3.39250243955103,24,2.5,0.133333333333333,2.5,0.133333333333333,elephantseal_dominance_weighted,weighted_dominance_phys_contact_2011_2012,Carnivora,Mirounga,angustirostris,dominance,free-ranging,
+inf,4,1.5,0,1.5,0,elephantseal_dominance_weighted,weighted_dominance_phys_contact_2012_2013,Carnivora,Mirounga,angustirostris,dominance,free-ranging,
+8.12631251840858,19,5.15789473684211,0.559463051568315,5.15789473678947,0.0744971315030743,erythrocebus_patas_grooming_griffin,weighted_primate_matrix_7,Primates,Erythrocebus,patas,grooming,free-ranging,old_world
+2.83752767133412,14,2.14285714285714,0,5.57142857142857,0,fossa_sexual_weighted,fossa_hawkins_sexual_network_attribute,Carnivora,Cryptoprocta,ferox ,FE_mating,free-ranging,
+10.6286333601253,60,11.3333333333333,0.501743173982507,1.20173333333333,0.0697806871811948,groundsquirrel_association_weighted,ground_squirrel_smith_2016a_attribute,Rodentia,Otospermophilus,beecheyi,spatial proximity,free ranging,
+103.980773477725,59,23.5593220338983,0.77942431888436,2.34261016949153,0.0824783755263587,groundsquirrel_association_weighted,ground_squirrel_smith_2016b_attribute,Rodentia,Otospermophilus,beecheyi,social projection bipartite,free ranging,
+8.40568779025512,59,8.94915254237288,0.500108002024621,0.97335593220339,0.069568076249472,groundsquirrel_association_weighted,ground_squirrel_smith_2017a_attribute,Rodentia,Otospermophilus,beecheyi,spatial proximity,free ranging,
+100.82800592978,61,27.672131147541,0.782931360021628,3.79186885245902,0.0872202816647549,groundsquirrel_association_weighted,ground_squirrel_smith_2017b_attribute,Rodentia,Otospermophilus,beecheyi,social projection bipartite,free ranging,
+2.66666666666667,4,1.5,0,2.5,0,howler_sexual_weighted,howler_monkey_oklander_sexual_network_autumn_attribute,Primates,Alouatta,caraya ,FE_mating,free-ranging,new_world
+6,4,1.5,0,2.5,0,howler_sexual_weighted,howler_monkey_oklander_sexual_network_spring1_attribute,Primates,Alouatta,caraya ,FE_mating,free-ranging,new_world
+inf,3,1.33333333333333,0,4,0,howler_sexual_weighted,howler_monkey_oklander_sexual_network_spring2_attribute,Primates,Alouatta,caraya ,FE_mating,free-ranging,new_world
+2.57083517719317,5,1.6,0,4.4,0,howler_sexual_weighted,howler_monkey_oklander_sexual_network_summer_attribute,Primates,Alouatta,caraya ,FE_mating,free-ranging,new_world
+2.68750385617017,11,2,0,3.81818181818182,0,howler_sexual_weighted,howler_monkey_oklander_sexual_network_winter_attribute,Primates,Alouatta,caraya ,FE_mating,free-ranging,new_world
+58.7139852366028,50,36.04,0.887184944166443,11.750192603524,0.132473096821693,humpbackdolphin_proximity_weighted,humpback_dolphin_hunt,Artiodactyla,Sousa,sahulensis,spatial_proximity,free ranging,
+-65.6643606384631,35,29.7714285714286,0.921745879151358,1.46402343726286,0.112511407725963,hyenas_groupmembership_weighted,hyena_holekamp_networkA_attribute,Carnivora,Crocuta,crocuta,group_membership,free-ranging,
+-47.2482012253032,36,32.5,0.963124467434653,2.47605853788333,0.146484317490738,hyenas_groupmembership_weighted,hyena_holekamp_networkB_attribute,Carnivora,Crocuta,crocuta,group_membership,free-ranging,
+-55.8715092725611,35,29.0857142857143,0.898634875695079,1.30990048929143,0.125130865071137,hyenas_groupmembership_weighted,hyena_holekamp_networkC_attribute,Carnivora,Crocuta,crocuta,group_membership,free-ranging,
+615.858136160164,62,37.6451612903226,0.667144795982283,77.0645161290323,0.137781967568698,japanesemonkey_dominance_weighted,japanese_monkey_takahata,Primates,Macaca,fuscata fuscata,dominance,semi-ranging,old_world
+-13.8824538729125,17,10.7058823529412,0.822177495706907,65.2941176470588,0.0705042316577195,kangaroo_proximity_weighted,weighted_kangaroo_interactions,Diprododontia,Macropus,giganteus,spatial_proximity,free-ranging,
+,5,1.6,0,,0,kangaroo_rat_sexual_unweighted,kangaroo_rat_randall_sexual_network_attribute,Rodentia,Dipodomys,spectabilis ,FE_mating,free-ranging,
+22.6828038680782,43,10.5116279069767,0.625494289751976,10.5116279069767,0.625494289751976,killerwhale_proximity_weighted,killer_whale_guimaraes,Artiodactyla,Orcinus,orca,spatial_proximity,free ranging,
+2.60105256777871,7,1.71428571428571,0,2,0,lemur_sexual_weighted,lemur_pereira_sexual_network_1_attribute,Primates,Lemur,catta ,FE_mating,semi-ranging,
+3.15217391304348,5,1.6,0,1.6,0,lemur_sexual_weighted,lemur_pereira_sexual_network_2_attribute,Primates,Lemur,catta ,FE_mating,semi-ranging,
+13.7194817938301,19,12,0.699807356386304,11.9999999996632,0.074441249874592,macaca_artoides_grooming_griffin,weighted_primate_matrix_8,Primates,Macaca,arctoides,grooming,semi-ranging,old_world
+-1362.37276964412,19,13.5789473684211,0.827382576144186,13.5789473684737,0.0742881721532953,macaca_assamensis_grooming_griffin,weighted_primate_matrix_9,Primates,Macaca,assamensis,grooming,free-ranging,old_world
+3.11531117111683,21,5.71428571428571,0.380821823678966,5.69082227615238,0.0289599513174642,macaca_fuscata_grooming_griffin,weighted_primate_matrix_10,Primates,Macaca,fuscata,grooming,free-ranging,old_world
+23.3948759731219,16,9.125,0.729766414141414,9.1249999999625,0.0801372925483258,macaca_mulatta_grooming_griffin,weighted_primate_matrix_11,Primates,Macaca,mulatta,grooming,free-ranging,old_world
+51.6422162933173,16,11.125,0.78741779054279,11.1249999999375,0.148384011665603,macaca_radiata_grooming_griffin,weighted_primate_matrix_12,Primates,Macaca,radiata,grooming,free-ranging,old_world
+24.1186393586157,25,14.48,0.62012335926887,14.48000000056,0.0658538713668717,macaca_tonikeana_association_griffin,weighted_primate_matrix_13,Primates,Macaca,tonkeana,physical_contact,N/A,old_world
+12.7731351585169,18,10.7777777777778,0.657805157805158,41.3333333333333,0.0787398569846236,macaque_association_weighted,macaques_pugagonzalez_1,Primates,Macaca,mulatta,grooming,semi-ranging,old_world
+23.5339689395424,21,9.23809523809524,0.544792905507191,22.2655428571429,0.0881939786102746,macaque_association_weighted,macaques_pugagonzalez_10,Primates,Macaca,arctoides,grooming,captive,old_world
+4.79258716635174,20,8.6,0.612026307026307,20.3463,0.0726447601681991,macaque_association_weighted,macaques_pugagonzalez_11,Primates,Macaca,radiata,grooming,free ranging,old_world
+3.08251053144781,8,7,1,26.97,0.0230799350227058,macaque_association_weighted,macaques_pugagonzalez_12,Primates,Macaca,sylvanus,grooming,free ranging,old_world
+-48.3517068851652,12,9,0.825270562770563,20.1666666666667,0.177748087917924,macaque_association_weighted,macaques_pugagonzalez_13,Primates,Macaca,tonkeana,grooming,captive,old_world
+-5.34333828183335,6,5,1,18,0.40225576111629,macaque_association_weighted,macaques_pugagonzalez_14,Primates,Macaca,tonkeana,grooming,captive,old_world
+15.8467837672262,7,5.14285714285714,0.914285714285714,208,0.124594679175803,macaque_association_weighted,macaques_pugagonzalez_2,Primates,Macaca,fuscata,grooming,free ranging,old_world
+10.1042994101135,9,7.55555555555556,0.939153439153439,163.111111111111,0.0470214701715055,macaque_association_weighted,macaques_pugagonzalez_3,Primates,Macaca,fuscata,grooming,free ranging,old_world
+-14.0241807283519,11,9.81818181818182,0.981818181818182,52.7272727272727,0.282186327776686,macaque_association_weighted,macaques_pugagonzalez_4,Primates,Macaca,fuscata,spatial_proximity,free ranging,old_world
+-75.9520885841723,8,5.75,0.894047619047619,233.75,0.256492705388008,macaque_association_weighted,macaques_pugagonzalez_5,Primates,Macaca,fuscata,grooming,free ranging,old_world
+31.5616041803161,9,7.33333333333333,0.900793650793651,21.9450686642222,0.0797910228147293,macaque_association_weighted,macaques_pugagonzalez_6,Primates,Macaca,fuscata,grooming,free ranging,old_world
+2.58328297082752,14,4,0.222108843537415,5.65428571428571,0.0128729799099174,macaque_association_weighted,macaques_pugagonzalez_7,Primates,Macaca,fascicularis,grooming,captive,old_world
+1.78081990995851,7,3.71428571428571,0.476190476190476,6.12,0.0298081899874131,macaque_association_weighted,macaques_pugagonzalez_8,Primates,Macaca,fascicularis,grooming,captive,old_world
+-30.394975737875,13,11.3846153846154,0.94996114996115,3.23606837615385,0.117725206141779,macaque_association_weighted,macaques_pugagonzalez_9,Primates,Macaca,assamensis,overall_mix,free ranging,old_world
+,13,2.46153846153846,0,,0,macaque_sexual_unweighted,macaque_overduindevries_sexual_network_attribute,Primates,Macaca,fascicularis,FE_mating,captive,old_world
+8.29031304885354,16,2.5,0,4.625,0,mandrill_sexual_weighted,mandrill_wickings_sexual_network_attribute,Primates,Mandrillus,sphinx,FE_mating,captive,old_world
+,12,5.83333333333333,0.780663780663781,,,mouse_association_unweighted,mouse_so_chasing_network_attribute,Rodentia,Mus,musculus,dominance,captive,
+,12,7.83333333333333,0.77775974025974,,,mouse_association_unweighted,mouse_so_fighting_network_attribute,Rodentia,Mus,musculus,non_physical_social_interaction,captive,
+,12,4,0.5,,,mouse_association_unweighted,mouse_so_grooming_network_attribute,Rodentia,Mus,musculus,non_physical_social_interaction,captive,
+,12,9.5,0.871855459355459,,,mouse_association_unweighted,mouse_so_sniffing_network_attribute,Rodentia,Mus,musculus,grooming,captive observation,
+5.04460813050126,19,5.78947368421053,0.463628768891927,5.78947637894737,0.0611860462885574,pan_paniscus_groominh_griffin,weighted_primate_matrix_14,Primates,Pan,paniscus,grooming,N/A,old_world
+11.4156753963498,24,8.58333333333333,0.652327302327302,8.583338673,0.0826938938616591,pan_troglodytes_grooming_griffin,weighted_primate_matrix_15,Primates,Pan,troglodytes,grooming,N/A,old_world
+4.88005717210021,25,7.76,0.409108114108114,7.76002296,0.0314331929832658,papio_papio_grooming_griffin,weighted_primate_matrix_16,Primates,Papio,papio,grooming,N/A,old_world
+-4.44889783673804,6,2.66666666666667,0.5,41.6666666666667,0.260832257609642,possum_burrowsharing_weighted,possum_banks_burrow_sharing_before_fire_weight=freq_attribute,Diprododontia,Trichosurus,cunninghami,social_projection_bipartite,free-ranging,
+1.88562785121974,23,5.47826086956522,0.493664065403196,13237.4782608696,0.00139093083556517,raccoon_proximity_weighted,weighted_raccoon_matrix_1,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.59915830483227,19,5.26315789473684,0.487134502923977,6957.78947368421,0.0111420141560465,raccoon_proximity_weighted,weighted_raccoon_matrix_10,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.40011261077358,19,4.8421052631579,0.510902255639098,26931.6842105263,0.00132997896610481,raccoon_proximity_weighted,weighted_raccoon_matrix_11,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.2006239141646,19,5.05263157894737,0.650083542188805,14901.5789473684,0.00359610957126795,raccoon_proximity_weighted,weighted_raccoon_matrix_12,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+3.81764984141591,19,6,0.68604085972507,14902.3157894737,0.00608009123970874,raccoon_proximity_weighted,weighted_raccoon_matrix_13,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.3417080324631,18,6.55555555555556,0.71163620330287,31872.8888888889,0.00494918980648366,raccoon_proximity_weighted,weighted_raccoon_matrix_14,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.37979925869794,18,5.44444444444444,0.58668430335097,93009.5555555556,0.0050832956970744,raccoon_proximity_weighted,weighted_raccoon_matrix_15,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.45137673753088,17,4.94117647058824,0.540756302521008,78298.2352941177,0.0191109899134709,raccoon_proximity_weighted,weighted_raccoon_matrix_16,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.52925926293321,16,3.75,0.502529761904762,91302.5,0.00573025460105128,raccoon_proximity_weighted,weighted_raccoon_matrix_17,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+10.3136400086709,9,4.22222222222222,0.627513227513227,118665.111111111,0.0121101966836308,raccoon_proximity_weighted,weighted_raccoon_matrix_18,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.1948779712213,17,4.11764705882353,0.507282913165266,122580.352941176,0.0050840161841153,raccoon_proximity_weighted,weighted_raccoon_matrix_19,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.98458797118578,22,4.54545454545455,0.533766233766234,16779.1818181818,0.00182386719138276,raccoon_proximity_weighted,weighted_raccoon_matrix_2,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.1948779712213,17,4.11764705882353,0.507282913165266,122580.352941176,0.0050840161841153,raccoon_proximity_weighted,weighted_raccoon_matrix_20,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.33344399363761,14,2.85714285714286,0.497619047619048,140051.714285714,0.0134678549637181,raccoon_proximity_weighted,weighted_raccoon_matrix_21,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.20571171258761,16,4.125,0.463392857142857,241724.75,0.0651994022477719,raccoon_proximity_weighted,weighted_raccoon_matrix_22,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+4.1219429921362,14,4.57142857142857,0.665136054421769,94791.4285714286,0.0221241090574816,raccoon_proximity_weighted,weighted_raccoon_matrix_23,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.99051669752015,14,5.85714285714286,0.740816326530612,185888.857142857,0.00831214769991768,raccoon_proximity_weighted,weighted_raccoon_matrix_24,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.37199812146751,13,5.38461538461539,0.527533577533578,127790.769230769,0.00259799821265072,raccoon_proximity_weighted,weighted_raccoon_matrix_25,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+-7.01642275510103,16,5.25,0.673701298701299,215199.125,0.00935957509807445,raccoon_proximity_weighted,weighted_raccoon_matrix_26,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.03632110816393,11,4.54545454545455,0.554761904761905,112957.818181818,0.00737193842758881,raccoon_proximity_weighted,weighted_raccoon_matrix_27,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.59183269991684,12,4.16666666666667,0.511111111111111,226457.166666667,0.00372992161574943,raccoon_proximity_weighted,weighted_raccoon_matrix_28,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.83280800725632,8,4.5,0.720833333333333,210498,0.00543038263659444,raccoon_proximity_weighted,weighted_raccoon_matrix_29,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+3.2553276821793,23,4.34782608695652,0.489855072463768,56.0869565217391,0.0137489335836077,raccoon_proximity_weighted,weighted_raccoon_matrix_3,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+-2.42485715381752,8,4.75,0.754761904761905,314124.75,0.0289803044443002,raccoon_proximity_weighted,weighted_raccoon_matrix_30,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+5.98152653258588,10,4.6,0.678888888888889,222248,0.0176402034547418,raccoon_proximity_weighted,weighted_raccoon_matrix_31,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.35656310668043,13,4.15384615384615,0.503296703296703,146366,0.0217316872749645,raccoon_proximity_weighted,weighted_raccoon_matrix_32,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.79804518546349,13,6,0.783616383616384,88797.2307692308,0.0416332015995275,raccoon_proximity_weighted,weighted_raccoon_matrix_33,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.99923282538472,13,4,0.532417582417582,125168.769230769,0.0204336893602256,raccoon_proximity_weighted,weighted_raccoon_matrix_34,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.38533794014308,14,3.28571428571429,0.550680272108844,226561.857142857,0.019323926170073,raccoon_proximity_weighted,weighted_raccoon_matrix_35,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.30700623072583,14,3.57142857142857,0.433333333333333,125875.714285714,0.0218599596042448,raccoon_proximity_weighted,weighted_raccoon_matrix_36,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.39879806688891,14,2.57142857142857,0.45,123404.857142857,0.000966839230408781,raccoon_proximity_weighted,weighted_raccoon_matrix_37,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.34461500836157,10,3.2,0.526666666666667,16059.8,0.00297967610051175,raccoon_proximity_weighted,weighted_raccoon_matrix_38,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.07333337807113,13,3.07692307692308,0.325641025641026,49656.9230769231,0.00673410862477324,raccoon_proximity_weighted,weighted_raccoon_matrix_39,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+5.22582027890791,24,8.33333333333333,0.661391848891849,84.1666666666667,0.0210159238765677,raccoon_proximity_weighted,weighted_raccoon_matrix_4,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.99155681322296,16,4.375,0.595684523809524,74931.625,0.00264871794618996,raccoon_proximity_weighted,weighted_raccoon_matrix_40,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+4.68835738259923,18,5.22222222222222,0.485846560846561,98689.2222222222,0.00702973575646349,raccoon_proximity_weighted,weighted_raccoon_matrix_41,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+145.240181017535,17,4.11764705882353,0.507282913165266,75095.5294117647,0.00568800436158939,raccoon_proximity_weighted,weighted_raccoon_matrix_42,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+-3.26291549607368,16,3.625,0.386309523809524,125267.625,0.0125469224961432,raccoon_proximity_weighted,weighted_raccoon_matrix_43,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.95153632752991,12,5.16666666666667,0.685714285714286,68435.6666666667,0.00141240792896283,raccoon_proximity_weighted,weighted_raccoon_matrix_44,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.56237549981692,13,3.84615384615385,0.479487179487179,46095.5384615385,0.00148859527772461,raccoon_proximity_weighted,weighted_raccoon_matrix_45,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+3.56359491330211,12,3.83333333333333,0.634920634920635,28329.1666666667,0.00390103213415057,raccoon_proximity_weighted,weighted_raccoon_matrix_46,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.01785294728696,13,3.69230769230769,0.458974358974359,15263.8461538462,0.00301519856037034,raccoon_proximity_weighted,weighted_raccoon_matrix_47,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.97571247141003,14,3.28571428571429,0.383333333333333,15699.7142857143,0.0014849289488395,raccoon_proximity_weighted,weighted_raccoon_matrix_48,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.08428225591838,11,4,0.63030303030303,26422.9090909091,0.00472501437066198,raccoon_proximity_weighted,weighted_raccoon_matrix_49,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.50030972853949,22,6.09090909090909,0.548524203069657,21425.8181818182,0.00114165135145698,raccoon_proximity_weighted,weighted_raccoon_matrix_5,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+3.4221559157651,16,4.125,0.547172619047619,5652.375,0.0231404610607584,raccoon_proximity_weighted,weighted_raccoon_matrix_50,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+3.4434200013608,15,4.53333333333333,0.611111111111111,15329.7333333333,0.0241468572456428,raccoon_proximity_weighted,weighted_raccoon_matrix_51,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+3.18350162520017,16,4,0.511309523809524,11530.625,0.0422855181074376,raccoon_proximity_weighted,weighted_raccoon_matrix_52,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.12390621452583,22,6.81818181818182,0.633444333444333,21163.5454545455,0.00428499472254074,raccoon_proximity_weighted,weighted_raccoon_matrix_6,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+1.79919105465736,22,7.45454545454545,0.509754134754135,51258.5454545455,0.0024277661374562,raccoon_proximity_weighted,weighted_raccoon_matrix_7,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.20150696473505,22,5.54545454545455,0.596062271062271,49475.3636363636,0.00285333243806612,raccoon_proximity_weighted,weighted_raccoon_matrix_8,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+2.01272872302668,21,5.71428571428571,0.546705146705147,40420.7619047619,0.00379471368124784,raccoon_proximity_weighted,weighted_raccoon_matrix_9,Carnivora,Procyon,lotor,spatial_proximity,free-ranging,
+3158.47315346528,78,47.2051282051282,0.679742895090573,119.435897435897,0.0835380795967428,rhesusmacaque_aggression_weighted_balasubramaniam,macaque_balasubramaniam_aggression2,Primates,Macaca,mulatta,dominance,captive,old_world
+138.406797028446,86,39.4186046511628,0.557598939623569,81.6744186046512,0.060990764797081,rhesusmacaque_aggression_weighted_balasubramaniam,macaque_balasubramaniam_aggression3,Primates,Macaca,mulatta,dominance,captive,old_world
+90.694163267749,78,43.9230769230769,0.630251538088049,106.666666666667,0.0502089629637487,rhesusmacaque_aggression_weighted_balasubramaniam,macaque_balasubramaniam_agression1,Primates,Macaca,mulatta,dominance,captive,old_world
+-441.556250395374,28,27,1,1882.28571428571,0.0989260117226088,rhesusmacaque_association_weighted,macaque_massen_contact_sits_attribute,Primates,Macaca,mulatta,physical_contact,captive,old_world
+6.27897880777082,28,16.2857142857143,0.658660075075354,95.0714285714286,0.0315345241696936,rhesusmacaque_association_weighted,macaque_massen_grooming_bouts_attribute,Primates,Macaca,mulatta,grooming,captive,old_world
+708.230148889032,62,37.6451612903226,0.667144795982283,78.5483870967742,0.140545455650736,rhesusmacaque_dominance_weighted,weighted_macaque_dominance,Primates,Macaca,fuscata,dominance,semi-ranging,old_world
+5.68099029168005,79,13.0126582278481,0.280129279386441,43.5949367088608,0.0173545123169141,rhesusmacaque_grooming_weighted_balasubramaniam,macaque_balasubramaniam_grooming1,Primates,Macaca,mulatta,grooming,captive,old_world
+8.22664621637053,78,15.6923076923077,0.294257911890699,46.7692307692308,0.0195955795857427,rhesusmacaque_grooming_weighted_balasubramaniam,macaque_balasubramaniam_grooming2,Primates,Macaca,mulatta,grooming,captive,old_world
+8.99407342080407,86,16.4883720930233,0.308362176976941,42.4186046511628,0.0201587975065347,rhesusmacaque_grooming_weighted_balasubramaniam,macaque_balasubramaniam_grooming3,Primates,Macaca,mulatta,grooming,captive,old_world
+6.75726655483412,79,14.3037974683544,0.288255930507742,38.1012658227848,0.0138427357398594,rhesusmacaque_huddeling_weighted_balasubramaniam,macaque_balasubramaniam_huddling1,Primates,Macaca,mulatta,physical_contact,captive,old_world
+5.16925042059441,78,8.76923076923077,0.230014137798729,20.7435897435897,0.0125504740534046,rhesusmacaque_huddeling_weighted_balasubramaniam,macaque_balasubramaniam_huddling2,Primates,Macaca,mulatta,physical_contact,captive,old_world
+8.10042581974106,86,16.3953488372093,0.283076784385421,37.5348837209302,0.018412881596981,rhesusmacaque_huddeling_weighted_balasubramaniam,macaque_balasubramaniam_huddling3,Primates,Macaca,mulatta,physical_contact,captive,old_world
+-9.72015796654311,7,5.71428571428571,0.952380952380952,5.71428571414286,0.0776324027329998,saguinus_fusciollis_grooming_griffin,weighted_primate_matrix_17,Primates,Saguinus,fuscicollis,grooming,semi-ranging,new_world
+-9.37156586158895,6,5,1,5.000000724,0.300851064234977,saguinus_mystax_grooming_griffin,weighted_primate_matrix_18,Primates,Saguinus,mystax,grooming,free-ranging,new_world
+12.5877043290399,12,7.16666666666667,0.690013227513228,7.16666665,0.0754848087770083,sapajus_apella_grooming_griffin,weighted_primate_matrix_4,Primates,Sapajus,apella,grooming,free-ranging,new_world
+-125.233062489466,28,16.7857142857143,0.716585145430477,47,0.145089876518486,sheep_dominance_weighted,weighted_sheep_dominance,Artiodactyla,Ovis,canadensis,dominance,semi-ranging,
+11.8147009994629,17,8.47058823529412,0.810538481126716,794.470588235294,0.0922135333187456,spidermonkeys_contact_weighted,spidermonkeys_rimbach_attribute,Primates,Ateles,hybridus,physical_contact,free-ranging,new_world
+3.97774794744549,18,2.22222222222222,0,3,0,squirrel_monkey_sexual_weighted,squirrel_monkey_boinkski_sexual_network_attribute,Primates,Saimiri,oerstedii,FE_mating,free-ranging,new_world
+3.56804702251223,10,2.6,0,2.59999999994,0,trachypithecus_johnii_association_griffin,weighted_primate_matrix_19,Primates,Trachypithecus,johnii,non_physical_social_interaction,free-ranging,old_world
+-446.032810964043,23,9.1304347826087,0.854334071725376,,,zebra_groupmembership_weighted,zebra_sundaresan_interaction_attribute,Perissodactyla,Equus,grevyi,group_membership,free-ranging,
