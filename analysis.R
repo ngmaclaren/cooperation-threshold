@@ -207,7 +207,7 @@ yticklabels <- c(
     "NCR",
     "ln(Brain mass)",
     "ln(Body mass)",
-    "〈k〉",
+    expression(group(langle, italic(k), rangle)),#"〈k〉",
     expression(italic(tilde(C))[w])
 )
 matcher <- c(
