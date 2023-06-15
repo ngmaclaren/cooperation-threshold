@@ -3,7 +3,7 @@ library(MuMIn)
                                         # Load data
 modelframe <- read.csv("./data/modelframe.csv")
                                         # Settings
-save_plots <- FALSE # TRUE
+save_plots <- TRUE # FALSE
 pal <- "Tableau 10"
 palette(pal)
 pal.colors <- palette.colors(palette = pal)
@@ -102,19 +102,16 @@ best <- bestmodels[[2]]
 
                                         # Diagnostics
 plot(best)
+
 plot(
-    residuals(best) ~ predict(best, type = "link"),
-    xlab = expression(hat(eta)), ylab = "Deviance Residuals"
+    data.frame(
+        Response = log(modelframe$bc),
+        kmean = modelframe$kmean,
+        NCR = modelframe$ncr)
 )
-## plot(
-##     data.frame(
-##         Response = 1/modelframe$bc,
-##         kmean = modelframe$kmean,
-##         NCR = modelframe$ncr)
-## )
 
                                         # demonstrate effect of removing influential data point
-best_alt <- update(bestmodels[[1]], subset = species != "campbelli")
+best_alt <- update(best, subset = species != "campbelli")
 summary(best_alt)
 plot(best_alt)
 
@@ -141,15 +138,15 @@ if(save_plots) {
 }
 par(mar = c(4, 4, 1, 1) + 0.5)
 plot(
-    bc ~ Brain, data = modelframe, type = "p", log = "y",
+    bc ~ Brain, data = modelframe, type = "p", # log = "y",
     pch = 19, cex = 2, col = pal.colors["lightgray"], #"gray50",
-    #ylim = c(0, 1.05*max(modelframe$bc)), xlim = range(modelframe$ncr),#c(2, 3.5),
-    xlab = "Neocortex ratio (NCR)", ylab = "Cooperation threshold (b/c)*",
+    xlab = "Brain mass", ylab = "Cooperation threshold (b/c)*",
     cex.lab = 1.5, cex.axis = 1.5
 )
 ##add_model(best, "ncr", pdata, pal.colors["blue"], pal.colors["blue"])
 add_model(best, "Brain", pdata, 1, 1)
-points(modelframe$Brain[3], modelframe$bc[3], col = 2, pch = 19, cex = 3)
+                                        # Influential data point
+## points(modelframe$Brain[3], modelframe$bc[3], col = 2, pch = 19, cex = 3)
 if(save_plots) dev.off()
 
                                         # Plot the coefficients of all the best models, and the 95%
@@ -158,14 +155,12 @@ palette("Tableau 10")
 yticklabels <- c(
     "Neocortex ratio", #"NCR",
     "Brain mass", # "ln(Brain mass)",
-    "Body mass", #"ln(Body mass)",
     "Average degree", # expression(group(langle, italic(k), rangle)),#"〈k〉",
     "Weighted\nclustering\ncoefficient" # expression(italic(tilde(C))[w])
 )
 matcher <- c(
     "ncr",
     "Brain",
-    "Body",
     "kmean",
     "logwclust"
 )
@@ -207,7 +202,7 @@ axis(2, at = ypos$pos, labels = yticklabels, las = 2, cex.lab = 1.5, cex.axis = 
 title(xlab = "Coefficient value", cex.lab = 1.5)
 abline(v = 0, col = "black", lty = 1, lwd = .75)
 howmany <- length(bestmodels)
-adjusts <- seq(.33, -.33, length.out = howmany)
+adjusts <- seq(.25, -.25, length.out = howmany)
 abline(h = seq(min(ypos$pos) + .5, max(ypos$pos) - .5, by = 1),
        lwd = 1, lty = 2, col = pal.colors["lightgray"])
 for(i in 1:length(bestmodels)) {
@@ -216,8 +211,8 @@ for(i in 1:length(bestmodels)) {
         ptsize = 2, color = i + 2, pch = pchs[i], adjust = adjusts[i]
     )
 }
-text(-.3, .5, "Makes cooperation less likely", adj = 0, cex = 1.25)
-text(.3, .5, "Makes cooperation more likely", adj = 1, cex = 1.25)
+text(-2, .5, "Makes cooperation less likely", adj = 0, cex = 1.25)
+text(2, .5, "Makes cooperation more likely", adj = 1, cex = 1.25)
 legend(
     "topright", bty = "n", ncol = howmany,
     legend = paste("Model", 1:howmany, "      "),
