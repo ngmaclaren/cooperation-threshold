@@ -1,0 +1,17 @@
+# Emacs generated backups
+*~
+
+# notes files
+*.org
+
+# old files
+/old/*
+
+# local documents (e.g., articles) not relevant to the repository, including the directory
+*docs*
+
+# tex files, including the directory
+*tex*
+
+# generated image files
+img/*
