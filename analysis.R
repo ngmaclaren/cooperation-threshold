@@ -1,19 +1,8 @@
-### The log link has a strictly smaller deviance than the inverse link, suggesting better fit.
-### Using the log link tightens the confidence intervals.
-### Results are overall similar, and the best two models choose the same predictors.
-### Furthermore, it identifies a single outlier, and has better diagnostic plots for the best model.
-### That single outlier is Cercopithecus campbelli, which has a network with a large (b/c)*. 
-### Dropping that outlier, which we otherwise have no particular reason to do, gives good coefficients across the board.
-### summary(glm(bc ~ Brain + kmean + logwclust, data = modelframe, family = Gamma("log"), subset = -3))
-
-
                                         # For a brute force search through possible models
 library(MuMIn)
-
                                         # Load data
 modelframe <- read.csv("./data/modelframe.csv")
-
-                                        # settings
+                                        # Settings
 save_plots <- FALSE # TRUE
 pal <- "Tableau 10"
 palette(pal)
@@ -25,38 +14,35 @@ cbind(
     round(modelframe[, c("Brain", "ncr", "N", "kmean", "logsmean", "clust", "logwclust")], 2)
 )
 
-                                        # Collect all predictors to make a full model from which to
-                                        # dredge
+                                        # Collect all predictors to make a full model for dredge
 lhs <- "bc ~ "
-xterms <- colnames(modelframe)[4:ncol(modelframe)]
+xterms <- colnames(modelframe)[-which(colnames(modelframe) %in% c("genus", "species", "bc"))]
 rhs <- paste(xterms, collapse = " + ")
 form <- formula(paste0(lhs, rhs))
                                         # A positive, right-skewed, continuous variable may be modeled
                                         # with gamma-distributed errors
-fullmodel <- glm(form, Gamma, modelframe, na.action = "na.fail")
+initialmodel <- glm(form, Gamma, modelframe, na.action = "na.fail")
                                         # Make versions of the full model with other reasonable
                                         # choices
 modeloptions <- list(
-    fullmodel,
-    update(fullmodel, family = gaussian(link = "log")),
-    update(fullmodel, family = gaussian(link = "inverse")),
-    update(fullmodel, family = Gamma(link = "log")),
-    update(fullmodel, family = quasipoisson)
+    initialmodel,
+    update(initialmodel, family = Gamma(link = "log")),
+    update(initialmodel, family = gaussian(link = "log")), # does not converge
+    update(initialmodel, family = gaussian(link = "inverse")), # does not converge
+    update(initialmodel, family = quasipoisson)
 )
-                                        # Check model fit. Small deviance reflects better optimization
-                                        # results.
-dev <- sapply(modeloptions, deviance) # deviance is a measure of model fit
-                                        # Calculate estimates of model fit, Faraway ~p. 157
+names(modeloptions) <- c(
+    "Gamma, Inverse",
+    "Gamma, Log",
+    "Gaussian, Log",
+    "Gaussian, Inverse",
+    "Quasipoisson"
+)                                        # Calculate estimates of model fit, Faraway ~p. 157
+                                        # Small deviance reflects better fit.
+dev <- sapply(modeloptions, deviance)
 print(dev)
 1 - pchisq(dev, sapply(modeloptions, df.residual))
 
-names(modeloptions) <- c(
-    "Gamma, Inverse",
-    "Gaussian, Log",
-    "Gaussian, Inverse",
-    "Gamma, Log",
-    "Quasipoisson"
-)
                                         # Check residuals for all chosen models.
                                         # Gaussian models are clearly poor from visual inspection,
                                         # confirming deviance analysis. 
@@ -72,10 +58,7 @@ names(modeloptions) <- c(
 ## Dredge
                                         # A single function call from the MuMIn library searches all
                                         # models which are subsets of the full model specified above
-                                        # and have from 0 to five predictor variables. There are
-                                        # several warnings having to do with missing values produced
-                                        # in model fit. These would be poor models anyway.
-                                        # ---> VERIFY
+                                        # and have from 0 to five predictor variables.
 
                                         # to forbid Brain and ncr from being in the same model
 ## termmatrix <- matrix(
@@ -83,26 +66,46 @@ names(modeloptions) <- c(
 ## )
 ## termmatrix[lower.tri(termmatrix)] <- TRUE
 ## termmatrix["ncr", "Brain"] <- FALSE
-## dredged <- dredge(fullmodel, m.lim = c(0, 5))#, subset = termmatrix)
+## dredged <- dredge(modeloptions[[which.min(dev)]], m.lim = c(0, 5))#, subset = termmatrix)
+
                                         # Choose the minimum deviance model
 dredged <- dredge(modeloptions[[which.min(dev)]], m.lim = c(0, 5))
+                                        # Alternately, choose the canonical link, with slightly poorer
+                                        # deviance
 ## dredged <- dredge(modeloptions[["Gamma, Inverse"]], m.lim = c(0, 5))
+
+                                        # Make the AIC comp figure here
+ht <- 7; wd <- 7
+if(save_plots) {
+    cairo_pdf("./img/AICcomp.pdf", height = ht, width = wd)
+} else {
+    dev.new(height = ht, width = wd)
+}
+par(mar = c(4, 4, 1, 1) + 0.5)
+plot(
+    seq(nrow(dredged)), dredged$AICc, type = "o", lwd = 2, lty = 1, col = 1,
+    xlab = "Model rank", ylab = "AICc", cex.axis = 1.5, cex.lab = 1.5,
+    xlim = range(seq(nrow(dredged))), ylim = range(dredged$AICc)
+)
+if(save_plots) dev.off()
+
                                         # Focus on models that have an AICc value no greater than 3
                                         # more than the best model.
 bestmodels <- get.models(dredged, subset = delta < 3)
-
+                                        # Inspect basic summary
+lapply(bestmodels, summary)
+                                        # and profile likelihood confidence intervals
+lapply(bestmodels, confint)
 
                                         # Best model including the NCR term (Model 2)
-best <- 
-                                        # demonstrate effect of removing influential data point
-## best <- update(bestmodels[[1]], subset = species != "campbelli")
-summary(best)
-                                        # Diagnostics
-## dev.new()
-## plot(residuals(best) ~ predict(best, type = "link"),
-##      xlab = expression(hat(eta)), ylab = "Deviance Residuals")
+best <- bestmodels[[2]]
 
-## dev.new(height = 11, width = 11)
+                                        # Diagnostics
+plot(best)
+plot(
+    residuals(best) ~ predict(best, type = "link"),
+    xlab = expression(hat(eta)), ylab = "Deviance Residuals"
+)
 ## plot(
 ##     data.frame(
 ##         Response = 1/modelframe$bc,
@@ -110,10 +113,10 @@ summary(best)
 ##         NCR = modelframe$ncr)
 ## )
 
-## dev.new()
-## par(mfrow = c(2, 2))
-## plot(best)
-
+                                        # demonstrate effect of removing influential data point
+best_alt <- update(bestmodels[[1]], subset = species != "campbelli")
+summary(best_alt)
+plot(best_alt)
 
                                         # Plot the data and model fit w/ 2*SE for the best model which
                                         # includes NCR as a predictor
@@ -222,27 +225,6 @@ legend(
 )
 if(save_plots) dev.off()
 
-                                        # Show the AIC results
-ht <- 7; wd <- 7
-if(save_plots) {
-    cairo_pdf("./img/AICcomp.pdf", height = ht, width = wd)
-} else {
-    dev.new(height = ht, width = wd)
-}
-par(mar = c(4, 4, 1, 1) + 0.5)
-plot(
-    seq(nrow(dredged)), dredged$AICc, type = "o", lwd = 2, lty = 1, col = 1,
-    ##NULL,
-    xlab = "Model rank", ylab = "AICc", cex.axis = 1.5, cex.lab = 1.5,
-    xlim = range(seq(nrow(dredged))), ylim = range(dredged$AICc)
-)
-## lines(seq(nrow(dredged)), dredged$AICc, col = pal.colors["lightgray"], lwd = 2, lty = 1)
-## points(
-##     6:nrow(dredged), dredged$AICc[6:nrow(dredged)],
-##     pch = 1, lwd = 2, cex = 2, col = pal.colors["lightgray"]
-## )
-## points(1:5, dredged$AICc[1:5], col = 1:5, pch = 1, cex = 2, lwd = 4)
-if(save_plots) dev.off()
 
 
                                         # Print summaries of the models with ΔAICc < 3 (top five)
