@@ -1,20 +1,23 @@
+### The log link has a strictly smaller deviance than the inverse link, suggesting better fit.
+### Using the log link tightens the confidence intervals.
+### Results are overall similar, and the best two models choose the same predictors.
+### Furthermore, it identifies a single outlier, and has better diagnostic plots for the best model.
+### That single outlier is Cercopithecus campbelli, which has a network with a large (b/c)*. 
+### Dropping that outlier, which we otherwise have no particular reason to do, gives good coefficients across the board.
+### summary(glm(bc ~ Brain + kmean + logwclust, data = modelframe, family = Gamma("log"), subset = -3))
+
+
                                         # For a brute force search through possible models
 library(MuMIn)
-add_model <- function(model, xvar, pdata, color1, color2) {
-    y <- predict(model, pdata, type = "response", se = TRUE)
-    lines(pdata[, xvar], y$fit, lwd = 3, col = color1)
-    lines(pdata[, xvar], y$fit + 2*y$se.fit, lwd = 1.5, col = color2, lty = 3)
-    lines(pdata[, xvar], y$fit - 2*y$se.fit, lwd = 1.5, col = color2, lty = 3)
-}
 
-## file settings
+                                        # settings
 save_plots <- FALSE # TRUE
 pal <- "Tableau 10"
 palette(pal)
 pal.colors <- palette.colors(palette = pal)
-##
-##
-## Data Prep
+
+                                        # Data Prep
+                                        #
                                         # This data is a processed version of the output from
                                         # "evaluate-threshold.py"
 df <- read.csv("./data/network-data.csv")
@@ -81,12 +84,21 @@ newdf <- newdf[, -which(colnames(newdf) %in% c("smean", "wclust"))]
 newdf$genus <- dfr$genus[match(newdf$species, dfr$species)]
 newdf <- newdf[, c(ncol(newdf), 1:(ncol(newdf) - 1))]
 
-                                        # What is the correlation between N and b/c?
+                                        # Zero-order correlations of interest
 cor(newdf$bc, newdf$N)
+cor(newdf$Brain, newdf$Body)
+cor(newdf$ncr, newdf$N)
 
-## Full Model
+                                        # Full Model
+                                        #
+                                        # Drop body size due to high correlation with brain size
+modelframe <- newdf[, -grep("Body", colnames(newdf))]
+                                        # print data table
+cbind(
+    modelframe[, c("genus", "species")],
+    round(modelframe[, c("Brain", "ncr", "N", "kmean", "logsmean", "clust", "logwclust")], 2)
+)
 
-modelframe <- newdf
                                         # Collect all predictors to make a full model from which to
                                         # dredge
 lhs <- "bc ~ "
@@ -109,6 +121,7 @@ modeloptions <- list(
                                         # results.
 dev <- sapply(modeloptions, deviance) # deviance is a measure of model fit
                                         # Calculate estimates of model fit, Faraway ~p. 157
+print(dev)
 1 - pchisq(dev, sapply(modeloptions, df.residual))
 
 names(modeloptions) <- c(
@@ -121,94 +134,104 @@ names(modeloptions) <- c(
                                         # Check residuals for all chosen models.
                                         # Gaussian models are clearly poor from visual inspection,
                                         # confirming deviance analysis. 
-dev.new(height = 10, width = 15); par(mfrow = c(2, 3))
-for(i in 1:length(modeloptions)) {
-    model <- modeloptions[[i]]
-    plot(
-        residuals(model) ~ predict(model, type = "link"),
-        xlab = expression(hat(eta)), ylab = "Deviance residuals", main = names(modeloptions)[i]
-    )
-}
+## dev.new(height = 10, width = 15); par(mfrow = c(2, 3))
+## for(i in 1:length(modeloptions)) {
+##     model <- modeloptions[[i]]
+##     plot(
+##         residuals(model) ~ predict(model, type = "link"),
+##         xlab = expression(hat(eta)), ylab = "Deviance residuals", main = names(modeloptions)[i]
+##     )
+## }
 
 ## Dredge
                                         # A single function call from the MuMIn library searches all
                                         # models which are subsets of the full model specified above
-                                        # and have from 0 to four predictor variables. There are
+                                        # and have from 0 to five predictor variables. There are
                                         # several warnings having to do with missing values produced
                                         # in model fit. These would be poor models anyway.
                                         # ---> VERIFY
-dredged <- dredge(fullmodel, m.lim = c(0, 5))
+
+                                        # to forbid Brain and ncr from being in the same model
+## termmatrix <- matrix(
+##     NA, nrow = length(xterms), ncol = length(xterms), dimnames = list(sort(xterms), sort(xterms))
+## )
+## termmatrix[lower.tri(termmatrix)] <- TRUE
+## termmatrix["ncr", "Brain"] <- FALSE
+## dredged <- dredge(fullmodel, m.lim = c(0, 5))#, subset = termmatrix)
+                                        # Choose the minimum deviance model
+dredged <- dredge(modeloptions[[which.min(dev)]], m.lim = c(0, 5))
+## dredged <- dredge(modeloptions[["Gamma, Inverse"]], m.lim = c(0, 5))
                                         # Focus on models that have an AICc value no greater than 3
                                         # more than the best model.
 bestmodels <- get.models(dredged, subset = delta < 3)
 
-                                        # Show the AIC results
-ht <- 7; wd <- 7
-if(save_plots) {
-    cairo_pdf("./img/AICcomp.pdf", height = ht, width = wd, family = "Bitstream Vera Sans")
-} else {
-    dev.new(height = ht, width = wd)
-}
-par(mar = c(4, 4, 1, 1) + 0.5)
-plot(1:nrow(dredged), dredged$AICc, type = "o",
-     pch = 1, lwd = 2, col = pal.colors["blue"],
-     xlab = "Model rank", ylab = "AICc", cex.axis = 1.5, cex.lab = 1.5)
-if(save_plots) dev.off()
 
-                                        # Best model including the ncr term
-best <- bestmodels[[3]]
+                                        # Best model including the NCR term (Model 2)
+best <- 
+                                        # demonstrate effect of removing influential data point
+## best <- update(bestmodels[[1]], subset = species != "campbelli")
 summary(best)
                                         # Diagnostics
-dev.new()
-plot(residuals(best) ~ predict(best, type = "link"),
-     xlab = expression(hat(eta)), ylab = "Deviance Residuals")
+## dev.new()
+## plot(residuals(best) ~ predict(best, type = "link"),
+##      xlab = expression(hat(eta)), ylab = "Deviance Residuals")
 
-dev.new(height = 11, width = 11)
-plot(
-    data.frame(
-        Response = 1/modelframe$bc,
-        kmean = modelframe$kmean,
-        NCR = modelframe$ncr)
-)
+## dev.new(height = 11, width = 11)
+## plot(
+##     data.frame(
+##         Response = 1/modelframe$bc,
+##         kmean = modelframe$kmean,
+##         NCR = modelframe$ncr)
+## )
 
-dev.new()
-par(mfrow = c(2, 2))
-plot(best)
+## dev.new()
+## par(mfrow = c(2, 2))
+## plot(best)
 
 
                                         # Plot the data and model fit w/ 2*SE for the best model which
                                         # includes NCR as a predictor
+add_model <- function(model, xvar, pdata, color1, color2) {
+    y <- predict(model, pdata, type = "response", se = TRUE)
+    lines(pdata[, xvar], y$fit, lwd = 3, col = color1)
+    lines(pdata[, xvar], y$fit + 2*y$se.fit, lwd = 1.5, col = color2, lty = 3)
+    lines(pdata[, xvar], y$fit - 2*y$se.fit, lwd = 1.5, col = color2, lty = 3)
+}
+
 pdata <- data.frame(
     logwclust = median(modelframe$logwclust),
     kmean = median(modelframe$kmean),
-    ncr = seq(min(modelframe$ncr), max(modelframe$ncr), length.out = 50)
+    ncr = seq(min(modelframe$ncr), max(modelframe$ncr), length.out = 50),
+    Brain = seq(min(modelframe$Brain), max(modelframe$Brain), length.out = 50)
 )
 ht <- 7; wd <- 7
 if(save_plots) {
-    cairo_pdf("./img/modelfig.pdf", height = ht, width = wd, family = "Bitsream Vera Sans")
+    cairo_pdf("./img/modelfig.pdf", height = ht, width = wd)
 } else {
     dev.new(height = ht, width = wd)
 }
 par(mar = c(4, 4, 1, 1) + 0.5)
 plot(
-    bc ~ ncr, data = modelframe, type = "p",
+    bc ~ Brain, data = modelframe, type = "p", log = "y",
     pch = 19, cex = 2, col = pal.colors["lightgray"], #"gray50",
-    ylim = c(0, 1.05*max(modelframe$bc)), xlim = range(modelframe$ncr),#c(2, 3.5),
+    #ylim = c(0, 1.05*max(modelframe$bc)), xlim = range(modelframe$ncr),#c(2, 3.5),
     xlab = "Neocortex ratio (NCR)", ylab = "Cooperation threshold (b/c)*",
     cex.lab = 1.5, cex.axis = 1.5
 )
-add_model(best, "ncr", pdata, pal.colors["blue"], pal.colors["blue"])
+##add_model(best, "ncr", pdata, pal.colors["blue"], pal.colors["blue"])
+add_model(best, "Brain", pdata, 1, 1)
+points(modelframe$Brain[3], modelframe$bc[3], col = 2, pch = 19, cex = 3)
 if(save_plots) dev.off()
 
                                         # Plot the coefficients of all the best models, and the 95%
                                         # confidence intervals of those coefficients
 palette("Tableau 10")
 yticklabels <- c(
-    "NCR",
-    "ln(Brain mass)",
-    "ln(Body mass)",
-    expression(group(langle, italic(k), rangle)),#"〈k〉",
-    expression(italic(tilde(C))[w])
+    "Neocortex ratio", #"NCR",
+    "Brain mass", # "ln(Brain mass)",
+    "Body mass", #"ln(Body mass)",
+    "Average degree", # expression(group(langle, italic(k), rangle)),#"〈k〉",
+    "Weighted\nclustering\ncoefficient" # expression(italic(tilde(C))[w])
 )
 matcher <- c(
     "ncr",
@@ -221,7 +244,7 @@ ypos <- data.frame(
     name = matcher,
     pos = rev(1:length(yticklabels))
 )
-plot_coefs <- function(model, ptsize, color, adjust) {
+plot_coefs <- function(model, ptsize, color, pch, adjust) {
     coefs <- as.data.frame(coefficients(model))
     cis <- confint(model)
     if(nrow(coefs) == 1) {
@@ -231,17 +254,19 @@ plot_coefs <- function(model, ptsize, color, adjust) {
         coefs <- cbind(coefs, cis)
     }
     coefs$ypos <- ypos$pos[match(rownames(coefs), ypos$name)]
-    pch <- 1; lwd <- ptsize*1.5; cex <- ptsize; lty <- 1
+    pch <- pch; lwd <- ptsize*1.5; cex <- ptsize; lty <- 1
     y <- coefs[-1, 4] + adjust
     points(x = coefs[-1, 1], y = y, pch = pch, lwd = lwd, cex = cex, col = color)
     segments(x0 = coefs[-1, 2], x1 = coefs[-1, 3], y0 = y, lwd = lwd, col = color, lty = 1)
 }
-xlim <- c(-.3, .3)
+##xlim <- c(-.3, .3)
+xlim <- c(-2, 2)
 ylim <- range(ypos[-9, "pos"]) + c(-.5, .5)
 ht <- 7
 wd <- 14
+pchs <- c(0, 1, 2, 5, 6)
 if(save_plots) {
-    cairo_pdf("./img/searchfig.pdf", height = ht, width = wd, family = "Bitsream Vera Sans")
+    cairo_pdf("./img/searchfig.pdf", height = ht, width = wd)
 } else {
     dev.new(height = ht, width = wd)
 }
@@ -259,7 +284,7 @@ abline(h = seq(min(ypos$pos) + .5, max(ypos$pos) - .5, by = 1),
 for(i in 1:length(bestmodels)) {
     plot_coefs(
         model = bestmodels[[i]],
-        ptsize = 2, color = i, adjust = adjusts[i]
+        ptsize = 2, color = i + 2, pch = pchs[i], adjust = adjusts[i]
     )
 }
 text(-.3, .5, "Makes cooperation less likely", adj = 0, cex = 1.25)
@@ -267,9 +292,32 @@ text(.3, .5, "Makes cooperation more likely", adj = 1, cex = 1.25)
 legend(
     "topright", bty = "n", ncol = howmany,
     legend = paste("Model", 1:howmany, "      "),
-    pch = 1, col = 1:howmany, pt.cex = 1.5, lwd = 1.5, pt.lwd = 1.5, cex = 1.25
+    pch = pchs, col = 1:howmany + 2, pt.cex = 1.5, lwd = 2, pt.lwd = 2, cex = 1.25
 )
 if(save_plots) dev.off()
+
+                                        # Show the AIC results
+ht <- 7; wd <- 7
+if(save_plots) {
+    cairo_pdf("./img/AICcomp.pdf", height = ht, width = wd)
+} else {
+    dev.new(height = ht, width = wd)
+}
+par(mar = c(4, 4, 1, 1) + 0.5)
+plot(
+    seq(nrow(dredged)), dredged$AICc, type = "o", lwd = 2, lty = 1, col = 1,
+    ##NULL,
+    xlab = "Model rank", ylab = "AICc", cex.axis = 1.5, cex.lab = 1.5,
+    xlim = range(seq(nrow(dredged))), ylim = range(dredged$AICc)
+)
+## lines(seq(nrow(dredged)), dredged$AICc, col = pal.colors["lightgray"], lwd = 2, lty = 1)
+## points(
+##     6:nrow(dredged), dredged$AICc[6:nrow(dredged)],
+##     pch = 1, lwd = 2, cex = 2, col = pal.colors["lightgray"]
+## )
+## points(1:5, dredged$AICc[1:5], col = 1:5, pch = 1, cex = 2, lwd = 4)
+if(save_plots) dev.off()
+
 
                                         # Print summaries of the models with ΔAICc < 3 (top five)
 summarylocal <- function(model) {
