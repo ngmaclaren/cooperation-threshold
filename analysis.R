@@ -3,16 +3,22 @@ library(MuMIn)
                                         # Load data
 modelframe <- read.csv("./data/modelframe.csv")
                                         # Settings
-save_plots <- TRUE # FALSE
+save_plots <- FALSE # TRUE
 pal <- "Tableau 10"
 palette(pal)
 pal.colors <- palette.colors(palette = pal)
 
                                         # print data table
-cbind(
-    modelframe[, c("genus", "species")],
-    round(modelframe[, c("Brain", "ncr", "N", "kmean", "logsmean", "clust", "logwclust")], 2)
-)
+with(list(x = modelframe), {
+    x$Brain <- exp(x$Brain)
+    x$smean <- exp(x$logsmean)
+    x$wclust <- exp(x$logwclust)
+
+    cbind(
+        x[, c("genus", "species")],
+        round(x[, c("bc", "ncr", "Brain", "N", "kmean", "smean", "clust", "wclust")], 2)
+    )
+})
 
                                         # Collect all predictors to make a full model for dredge
 lhs <- "bc ~ "
@@ -59,16 +65,7 @@ print(dev)
                                         # A single function call from the MuMIn library searches all
                                         # models which are subsets of the full model specified above
                                         # and have from 0 to five predictor variables.
-
-                                        # to forbid Brain and ncr from being in the same model
-## termmatrix <- matrix(
-##     NA, nrow = length(xterms), ncol = length(xterms), dimnames = list(sort(xterms), sort(xterms))
-## )
-## termmatrix[lower.tri(termmatrix)] <- TRUE
-## termmatrix["ncr", "Brain"] <- FALSE
-## dredged <- dredge(modeloptions[[which.min(dev)]], m.lim = c(0, 5))#, subset = termmatrix)
-
-                                        # Choose the minimum deviance model
+                                        # Choose the minimum deviance model as the base for dredging.
 dredged <- dredge(modeloptions[[which.min(dev)]], m.lim = c(0, 5))
                                         # Alternately, choose the canonical link, with slightly poorer
                                         # deviance
@@ -77,7 +74,7 @@ dredged <- dredge(modeloptions[[which.min(dev)]], m.lim = c(0, 5))
                                         # Make the AIC comp figure here
 ht <- 7; wd <- 7
 if(save_plots) {
-    cairo_pdf("./img/AICcomp.pdf", height = ht, width = wd)
+    pdf("./img/AICcomp.pdf", height = ht, width = wd)
 } else {
     dev.new(height = ht, width = wd)
 }
@@ -101,19 +98,19 @@ lapply(bestmodels, confint)
 best <- bestmodels[[2]]
 
                                         # Diagnostics
-plot(best)
+## plot(best)
 
-plot(
-    data.frame(
-        Response = log(modelframe$bc),
-        kmean = modelframe$kmean,
-        NCR = modelframe$ncr)
-)
+## plot(
+##     data.frame(
+##         Response = log(modelframe$bc),
+##         kmean = modelframe$kmean,
+##         NCR = modelframe$ncr)
+## )
 
-                                        # demonstrate effect of removing influential data point
-best_alt <- update(best, subset = species != "campbelli")
-summary(best_alt)
-plot(best_alt)
+##                                         # demonstrate effect of removing influential data point
+## best_alt <- update(best, subset = species != "campbelli")
+## summary(best_alt)
+## plot(best_alt)
 
                                         # Plot the data and model fit w/ 2*SE for the best model which
                                         # includes NCR as a predictor
@@ -132,19 +129,19 @@ pdata <- data.frame(
 )
 ht <- 7; wd <- 7
 if(save_plots) {
-    cairo_pdf("./img/modelfig.pdf", height = ht, width = wd)
+    pdf("./img/modelfig.pdf", height = ht, width = wd)
 } else {
     dev.new(height = ht, width = wd)
 }
 par(mar = c(4, 4, 1, 1) + 0.5)
 plot(
-    bc ~ Brain, data = modelframe, type = "p", # log = "y",
+    bc ~ ncr, data = modelframe, type = "p", # log = "y",
     pch = 19, cex = 2, col = pal.colors["lightgray"], #"gray50",
-    xlab = "Brain mass", ylab = "Cooperation threshold (b/c)*",
+    xlab = "Neocortex ratio", ylab = "Cooperation threshold (b/c)*",
     cex.lab = 1.5, cex.axis = 1.5
 )
-##add_model(best, "ncr", pdata, pal.colors["blue"], pal.colors["blue"])
-add_model(best, "Brain", pdata, 1, 1)
+add_model(best, "ncr", pdata, pal.colors["blue"], pal.colors["blue"])
+## add_model(best, "Brain", pdata, 1, 1)
                                         # Influential data point
 ## points(modelframe$Brain[3], modelframe$bc[3], col = 2, pch = 19, cex = 3)
 if(save_plots) dev.off()
@@ -190,7 +187,7 @@ ht <- 7
 wd <- 14
 pchs <- c(0, 1, 2, 5, 6)
 if(save_plots) {
-    cairo_pdf("./img/searchfig.pdf", height = ht, width = wd)
+    pdf("./img/searchfig.pdf", height = ht, width = wd)
 } else {
     dev.new(height = ht, width = wd)
 }
@@ -211,8 +208,8 @@ for(i in 1:length(bestmodels)) {
         ptsize = 2, color = i + 2, pch = pchs[i], adjust = adjusts[i]
     )
 }
-text(-2, .5, "Makes cooperation less likely", adj = 0, cex = 1.25)
-text(2, .5, "Makes cooperation more likely", adj = 1, cex = 1.25)
+text(2, .5, "Makes cooperation less likely", adj = 1, cex = 1.25)
+text(-2, .5, "Makes cooperation more likely", adj = 0, cex = 1.25)
 legend(
     "topright", bty = "n", ncol = howmany,
     legend = paste("Model", 1:howmany, "      "),
