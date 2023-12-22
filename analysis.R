@@ -1,5 +1,6 @@
                                         # For a brute force search through possible models
 library(MuMIn)
+
                                         # Load data
 modelframe <- read.csv("./data/modelframe.csv")
                                         # Settings
@@ -66,10 +67,23 @@ print(dev)
                                         # models which are subsets of the full model specified above
                                         # and have from 0 to five predictor variables.
                                         # Choose the minimum deviance model as the base for dredging.
-dredged <- dredge(modeloptions[[which.min(dev)]], m.lim = c(0, 5))
+
+                                        # Changes Friday, September 1, 2023
+                                        # Remove limitation on number of model terms.
+                                        # , m.lim = c(0, 5)
+                                        # Add limitation that the two brain size variables cannot
+                                        # appear in the same model
+chosen_model <- modeloptions[[which.min(dev)]]
+termsmatrix <- matrix(
+    TRUE, ncol = length(xterms), nrow = length(xterms), dimnames = list(xterms, xterms)
+)
+termsmatrix[upper.tri(termsmatrix)] <- NA
+diag(termsmatrix) <- NA
+termsmatrix["Brain", "ncr"] <- FALSE
+dredged <- dredge(chosen_model, subset = termsmatrix)
                                         # Alternately, choose the canonical link, with slightly poorer
                                         # deviance
-## dredged <- dredge(modeloptions[["Gamma, Inverse"]], m.lim = c(0, 5))
+## dredged <- dredge(modeloptions[["Gamma, Inverse"]], subset = termsmatrix)
 
                                         # Make the AIC comp figure here
 ht <- 7; wd <- 7
@@ -84,6 +98,7 @@ plot(
     xlab = "Model rank", ylab = "AICc", cex.axis = 1.5, cex.lab = 1.5,
     xlim = range(seq(nrow(dredged))), ylim = range(dredged$AICc)
 )
+plotrix::axis.break(2, min(dredged$AICc)-0.5, style = "zigzag")
 if(save_plots) dev.off()
 
                                         # Focus on models that have an AICc value no greater than 3
@@ -93,6 +108,12 @@ bestmodels <- get.models(dredged, subset = delta < 3)
 lapply(bestmodels, summary)
                                         # and profile likelihood confidence intervals
 lapply(bestmodels, confint)
+                                        # check variance inflation factors
+lapply(bestmodels, car::vif)
+car::vif(chosen_model)
+                                        # pseudo-R^2
+sapply(bestmodels, function(m) 1 - (m$deviance/m$null.deviance)) # McFadden's
+sapply(bestmodels, function(m) (m$null.deviance - m$deviance)/m$null.deviance) # Cohen's
 
                                         # Best model including the NCR term (Model 2)
 best <- bestmodels[[2]]
